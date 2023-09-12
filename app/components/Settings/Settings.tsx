@@ -1,0 +1,13 @@
+import { Ionicons } from "@expo/vector-icons";
+import { TouchableOpacity, View } from "react-native";
+import { styles } from "./SettingsStyles";
+
+export default function Settings() {
+    return (
+        <View style={styles.iconContainer}>
+            <TouchableOpacity>
+                <Ionicons name="settings-sharp" size={40} color="black" />
+            </TouchableOpacity>
+        </View>
+    );
+}

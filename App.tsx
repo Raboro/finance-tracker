@@ -3,12 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Footer from './app/components/Footer/Footer';
 import Balance from './app/components/Balance/Balance';
+import Settings from './app/components/Settings/Settings';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-
+      <Settings />
       <Balance balance={100}/>
 
       <View style={styles.content}>
