@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import BottomButtonsComponent from './app/components/ButtomButtons/ButtomButtonsComponent';
+import Footer from './app/components/Footer/Footer';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         </Text>
       </View>
 
-      <BottomButtonsComponent />
+      <Footer />
     </SafeAreaView>
   );
 }
