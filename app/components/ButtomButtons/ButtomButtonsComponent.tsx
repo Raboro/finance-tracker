@@ -1,5 +1,5 @@
-import { Entypo, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { TouchableOpacity, View } from "react-native";
+import { Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { TouchableOpacity, View } from 'react-native';
 import { buttonStyles } from './ButtonStyles';
 
 export default function BottomButtonsComponent() {
