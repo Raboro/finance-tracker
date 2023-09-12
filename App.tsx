@@ -10,7 +10,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Settings />
-      <Balance balance={100}/>
+      <Balance balance={100} />
 
       <View style={styles.content}>
         <Text style={styles.text}>

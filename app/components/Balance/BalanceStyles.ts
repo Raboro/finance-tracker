@@ -1,27 +1,26 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+  balanceContainer: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    marginTop: '30%',
+  },
 
-    balanceContainer: {
-        justifyContent: 'center',
-        alignContent: 'center',
-        marginTop: '30%'
-    },
+  positiveBalance: {
+    color: 'green',
+  },
 
-    positiveBalance: {
-        color: 'green'
-    },
+  nullBalance: {
+    color: 'black',
+  },
 
-    nullBalance: {
-        color: 'black'
-    },
+  negativeBalance: {
+    color: 'red',
+  },
 
-    negativeBalance: {
-        color: 'red'
-    },
-
-    text: {
-        fontSize: 30,
-        fontWeight: 'bold',
-    }
+  text: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
 });

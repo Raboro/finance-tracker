@@ -9,9 +9,7 @@ export default function Footer() {
         <Entypo name="home" size={40} color="black" />
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={[styles.button, styles.centerButton]}
-      >
+      <TouchableOpacity style={[styles.button, styles.centerButton]}>
         <Ionicons name="add-outline" size={60} color="black" />
       </TouchableOpacity>
 
