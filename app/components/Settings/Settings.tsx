@@ -1,6 +1,6 @@
-import { Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity, View } from "react-native";
-import { styles } from "./SettingsStyles";
+import { Ionicons } from '@expo/vector-icons';
+import { TouchableOpacity, View } from 'react-native';
+import { styles } from './SettingsStyles';
 
 export default function Settings() {
     return (

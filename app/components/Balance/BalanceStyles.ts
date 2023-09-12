@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
     balanceContainer: {
-        justifyContent: "center",
-        alignContent: "center",
+        justifyContent: 'center',
+        alignContent: 'center',
         marginTop: '30%'
     },
 
