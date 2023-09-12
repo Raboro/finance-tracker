@@ -2,11 +2,14 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Footer from './app/components/Footer/Footer';
+import Balance from './app/components/Balance/Balance';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
+
+      <Balance balance={100}/>
 
       <View style={styles.content}>
         <Text style={styles.text}>
