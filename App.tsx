@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Footer from './app/components/Footer/Footer';
 import Balance from './app/components/Balance/Balance';
 import Settings from './app/components/Settings/Settings';
+import AddPayment from './app/components/AddPayment/AddPayment';
 
 export default function App() {
+  const [addPaymentVisibility, setAddPaymentVisibility] = useState(false);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
@@ -18,7 +21,12 @@ export default function App() {
         </Text>
       </View>
 
-      <Footer />
+      <AddPayment 
+        visibility={addPaymentVisibility} 
+        setAddPaymentVisibility={setAddPaymentVisibility} 
+      />
+
+      <Footer setAddPaymentVisibility={setAddPaymentVisibility}/>
     </SafeAreaView>
   );
 }
