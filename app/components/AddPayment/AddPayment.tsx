@@ -1,4 +1,4 @@
-import { Button, Modal, View } from "react-native";
+import { Modal, View } from "react-native";
 import { styles } from "./AddPaymentStyles";
 import { Ionicons } from "@expo/vector-icons";
 
