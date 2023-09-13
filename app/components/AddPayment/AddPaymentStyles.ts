@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
-    right: 0
+    right: 0,
   },
 
   submitButton: {
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: COLORS.tertiary,
     borderColor: COLORS.primary,
-    borderWidth: 3
+    borderWidth: 3,
   },
 
   pressedSubmitButton: {
@@ -54,5 +54,5 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'black',
-  }
+  },
 });
