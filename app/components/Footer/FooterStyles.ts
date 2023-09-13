@@ -1,44 +1,33 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-    alignItems: 'center',
-  },
 
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    borderTopWidth: 3,
-    borderColor: 'black',
-    borderRadius: 0,
-  },
+    background: {
+        backgroundColor: '#6495ed',
+        height: Platform.OS === 'android' ? 70 : 100,
+        width: '100%',
+        bottom: Platform.OS === 'android' ? 0 : -40,
+    },
+    
+    circle: {
+        position: 'absolute',
+        backgroundColor: 'white',
+        height: 80,
+        width: '20%',
+        borderRadius: 50,
+        bottom: Platform.OS === 'android' ? 30 : 50,
+    },
 
-  leftButton: {
-    flex: 1.5,
-    paddingTop: 30,
-    borderRightWidth: 0,
-    borderTopLeftRadius: 30,
-  },
-
-  rightButton: {
-    flex: 1.5,
-    paddingTop: 30,
-    borderLeftWidth: 0,
-    borderTopRightRadius: 30,
-  },
-
-  centerButton: {
-    paddingBottom: 10,
-    marginTop: 25,
-    marginBottom: 20,
-    borderRightWidth: 3,
-    borderLeftWidth: 3,
-    borderBottomWidth: 3,
-    borderBottomLeftRadius: 80,
-    borderBottomRightRadius: 80,
-    borderTopWidth: 0,
-  },
+    centerButton: {
+        backgroundColor: '#add8e6',
+        position: 'absolute',
+        bottom: Platform.OS === 'android' ? 35 : 55,
+        borderRadius: 50,
+        width: '18%',
+        height: 75,
+        alignContent: 'center',
+        alignItems: 'center',
+        paddingTop: 7,
+        paddingLeft: 4
+    }
 });
