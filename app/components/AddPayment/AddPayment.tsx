@@ -25,7 +25,8 @@ export default function AddPayment({
             size={40}
             color="black"
             onPress={() => setAddPaymentVisibility(false)}
-          />
+            />
+        </View>
 
           <TextInput 
             style={styles.paymentInput}
@@ -36,7 +37,6 @@ export default function AddPayment({
           <Pressable style={({ pressed }) => [styles.submitButton, pressed && styles.pressedSubmitButton]} >
             <Text style={styles.submitText}>Submit</Text>
           </Pressable>
-        </View>
       </View>
     </Modal>
   );

@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
 
   closeIcon: {
     position: 'absolute',
-    right:'-30%',
+    right: 0,
     marginRight: 10,
     marginTop: 10,
   },
@@ -26,14 +26,12 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
-    right: '145%',
-    width: '70%'
+    right: 0
   },
 
   submitButton: {
-    right: '145%',
-    marginTop: '20%',
-    bottom: '-200%',
+    right: 0,
+    marginTop: '180%',
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
