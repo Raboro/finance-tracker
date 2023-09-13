@@ -1,4 +1,4 @@
-import { Modal, View } from 'react-native';
+import { Modal, Pressable, TextInput, View, Text } from 'react-native';
 import { styles } from './AddPaymentStyles';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -26,6 +26,16 @@ export default function AddPayment({
             color="black"
             onPress={() => setAddPaymentVisibility(false)}
           />
+
+          <TextInput 
+            style={styles.paymentInput}
+            placeholder='Payment'
+            keyboardType='numeric'
+          />
+
+          <Pressable style={({ pressed }) => [styles.submitButton, pressed && styles.pressedSubmitButton]} >
+            <Text style={styles.submitText}>Submit</Text>
+          </Pressable>
         </View>
       </View>
     </Modal>
