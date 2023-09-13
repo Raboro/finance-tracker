@@ -21,12 +21,12 @@ export default function App() {
         </Text>
       </View>
 
-      <AddPayment 
-        visibility={addPaymentVisibility} 
-        setAddPaymentVisibility={setAddPaymentVisibility} 
+      <AddPayment
+        visibility={addPaymentVisibility}
+        setAddPaymentVisibility={setAddPaymentVisibility}
       />
 
-      <Footer setAddPaymentVisibility={setAddPaymentVisibility}/>
+      <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
     </SafeAreaView>
   );
 }
