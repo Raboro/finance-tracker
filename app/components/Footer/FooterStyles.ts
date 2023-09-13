@@ -1,9 +1,10 @@
 import { Platform, StyleSheet } from "react-native";
+import { COLORS } from "../../utils/ColorStyles";
 
 export const styles = StyleSheet.create({
 
     background: {
-        backgroundColor: '#6495ed',
+        backgroundColor: COLORS.secondary,
         height: Platform.OS === 'android' ? 70 : 100,
         width: '100%',
         bottom: Platform.OS === 'android' ? 0 : -40,
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
     },
 
     centerButton: {
-        backgroundColor: '#add8e6',
+        backgroundColor: COLORS.secondary,
         position: 'absolute',
         bottom: Platform.OS === 'android' ? 35 : 55,
         borderRadius: 50,
@@ -27,7 +28,9 @@ export const styles = StyleSheet.create({
         height: 75,
         alignContent: 'center',
         alignItems: 'center',
-        paddingTop: 7,
-        paddingLeft: 4
+        paddingTop: 3,
+        paddingLeft: 4,
+        borderWidth: 4,
+        borderColor: COLORS.primary
     }
 });

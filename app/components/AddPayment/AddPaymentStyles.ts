@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../utils/ColorStyles";
 
 export const styles = StyleSheet.create({
    
@@ -8,9 +9,9 @@ export const styles = StyleSheet.create({
         borderRadius: 20, 
         marginVertical: 80,
         marginHorizontal: 20,
-        backgroundColor: '#add8e6',
+        backgroundColor: COLORS.secondary,
         borderWidth: 5,
-        borderColor: '#6495ed'
+        borderColor: COLORS.primary
     },
 
     closeIcon: {
