@@ -31,5 +31,6 @@ export const styles = StyleSheet.create({
     paddingLeft: 4,
     borderWidth: 4,
     borderColor: COLORS.primary,
+    elevation: 2,
   },
 });
