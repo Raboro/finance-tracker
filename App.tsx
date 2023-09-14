@@ -7,13 +7,14 @@ import Settings from './app/components/Settings/Settings';
 import AddPayment from './app/components/AddPayment/AddPayment';
 
 export default function App() {
+  const [balance, setBalance] = useState(0);
   const [addPaymentVisibility, setAddPaymentVisibility] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Settings />
-      <Balance balance={100} />
+      <Balance balance={balance} />
 
       <View style={styles.content}>
         <Text style={styles.text}>
@@ -24,6 +25,7 @@ export default function App() {
       <AddPayment
         visibility={addPaymentVisibility}
         setAddPaymentVisibility={setAddPaymentVisibility}
+        setBalance={setBalance}
       />
 
       <Footer setAddPaymentVisibility={setAddPaymentVisibility} />

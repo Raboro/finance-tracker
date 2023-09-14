@@ -1,16 +1,26 @@
 import { Modal, Pressable, TextInput, View, Text } from 'react-native';
 import { styles } from './AddPaymentStyles';
 import { Ionicons } from '@expo/vector-icons';
+import { useState } from 'react';
 
 interface AddPaymentProps {
   visibility: boolean;
   setAddPaymentVisibility: (visibility: boolean) => void;
+  setBalance: (balance: number) => void;
 }
 
 export default function AddPayment({
   visibility,
   setAddPaymentVisibility,
+  setBalance
 }: AddPaymentProps) {
+  const [input, updateInput] = useState(0);
+
+  const submit = () => {
+    setAddPaymentVisibility(false);
+    setBalance(input.toString() === 'NaN' ? 0 : input);
+  };
+
   return (
     <Modal
       visible={visibility}
@@ -31,7 +41,8 @@ export default function AddPayment({
         <TextInput
           style={styles.paymentInput}
           placeholder="Payment"
-          keyboardType="numeric"
+          keyboardType="numeric" 
+          onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
         <Pressable
@@ -39,6 +50,7 @@ export default function AddPayment({
             styles.submitButton,
             pressed && styles.pressedSubmitButton,
           ]}
+          onPress={submit}
         >
           <Text style={styles.submitText}>Submit</Text>
         </Pressable>
