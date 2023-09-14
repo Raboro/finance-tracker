@@ -1,7 +1,7 @@
-import { FlatList, Text, View } from "react-native";
-import Payment from "../../logic/Payment";
+import { FlatList, Text, View } from 'react-native';
+import Payment from '../../logic/Payment';
 import { styles } from './PaymentStyles';
-import PaymentItem from "../Payment/PaymentItem";
+import PaymentItem from '../Payment/PaymentItem';
 
 
 export default function PaymentHistory({ payments }: { payments: Payment[] }) {

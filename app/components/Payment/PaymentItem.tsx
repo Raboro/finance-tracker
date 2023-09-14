@@ -1,6 +1,6 @@
-import Payment from "../../logic/Payment";
+import Payment from '../../logic/Payment';
 import { Text } from 'react-native';
-import { styles } from "./PaymentStyles";
+import { styles } from './PaymentStyles';
 
 
 export default function PaymentItem({ payment }: { payment: Payment }) {

@@ -21,7 +21,7 @@ export default function App() {
 
   const noUpdateNeeded = (update: number) => {
     return update.toString() === 'NaN' || update === 0;
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
