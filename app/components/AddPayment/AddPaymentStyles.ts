@@ -49,7 +49,6 @@ export const styles = StyleSheet.create({
   },
 
   submitText: {
-    ontSize: 16,
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
