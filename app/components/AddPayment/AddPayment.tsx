@@ -19,7 +19,7 @@ export default function AddPayment({
   const resetModal = () => {
     setAddPaymentVisibility(false);
     updateInput(0);
-  }
+  };
 
   const submit = () => {
     updateBalance(input);
