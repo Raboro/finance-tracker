@@ -10,7 +10,7 @@ interface AddPaymentProps {
 }
 
 export default function AddPayment(props: AddPaymentProps) {
-const [input, updateInput] = useState(0);
+  const [input, updateInput] = useState(0);
 
   const resetModal = () => {
     props.setAddPaymentVisibility(false);
