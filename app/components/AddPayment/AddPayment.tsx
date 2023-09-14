@@ -6,25 +6,30 @@ import { useState } from 'react';
 interface AddPaymentProps {
   visibility: boolean;
   setAddPaymentVisibility: (visibility: boolean) => void;
-  setBalance: (balance: number) => void;
+  updateBalance: (balance: number) => void;
 }
 
 export default function AddPayment({
   visibility,
   setAddPaymentVisibility,
-  setBalance
+  updateBalance
 }: AddPaymentProps) {
   const [input, updateInput] = useState(0);
 
-  const submit = () => {
+  const resetModal = () => {
     setAddPaymentVisibility(false);
-    setBalance(input.toString() === 'NaN' ? 0 : input);
+    updateInput(0);
+  }
+
+  const submit = () => {
+    updateBalance(input);
+    resetModal();
   };
 
   return (
     <Modal
       visible={visibility}
-      onRequestClose={() => setAddPaymentVisibility(false)}
+      onRequestClose={resetModal}
       animationType="slide"
       presentationStyle="pageSheet"
     >
@@ -34,7 +39,7 @@ export default function AddPayment({
             name="close-sharp"
             size={40}
             color="black"
-            onPress={() => setAddPaymentVisibility(false)}
+            onPress={() => resetModal()}
           />
         </View>
 
