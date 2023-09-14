@@ -14,10 +14,14 @@ export default function App() {
   const [payments, updatePayments] = useState<Payment[]>([]);;
 
   const updateBalance = (update: number) => {
-    const value: number = update.toString() === 'NaN' ? 0 : update;
-    updatePayments(() => [...payments, new Payment(value)]);
-    setBalance(balance + (update.toString() === 'NaN' ? 0 : update));
+    if (noUpdateNeeded(update)) return;
+    updatePayments(() => [...payments, new Payment(update)]);
+    setBalance(balance + update);
   };
+
+  const noUpdateNeeded = (update: number) => {
+    return update.toString() === 'NaN' || update === 0;
+  }
 
   return (
     <SafeAreaView style={styles.container}>
