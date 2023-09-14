@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         margin: '3%',
         borderRadius: 10,
         textAlign: 'center',
-        marginHorizontal: '20%'
+        marginHorizontal: '20%',
+        paddingTop: '2%'
     }
 });
