@@ -1,7 +1,7 @@
 export default class Payment {
-    value: number;
+  value: number;
 
-    constructor(value: number) {
-        this.value = value;
-    }
+  constructor(value: number) {
+    this.value = value;
+  }
 }

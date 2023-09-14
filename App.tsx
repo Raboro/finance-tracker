@@ -11,7 +11,7 @@ import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 export default function App() {
   const [balance, setBalance] = useState(0);
   const [addPaymentVisibility, setAddPaymentVisibility] = useState(false);
-  const [payments, updatePayments] = useState<Payment[]>([]);;
+  const [payments, updatePayments] = useState<Payment[]>([]);
 
   const updateBalance = (update: number) => {
     if (noUpdateNeeded(update)) return;
@@ -29,7 +29,7 @@ export default function App() {
       <Settings />
       <Balance balance={balance} />
 
-      <PaymentHistory payments={payments}/>
+      <PaymentHistory payments={payments} />
 
       <AddPayment
         visibility={addPaymentVisibility}
