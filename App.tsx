@@ -15,7 +15,7 @@ export default function App() {
 
   const updateBalance = (update: number) => {
     if (noUpdateNeeded(update)) return;
-    updatePayments(() => [...payments, new Payment(update)]);
+    updatePayments([...payments, new Payment(update)]);
     setBalance(balance + update);
   };
 
