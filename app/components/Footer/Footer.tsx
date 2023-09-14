@@ -6,14 +6,14 @@ interface FooterProps {
   setAddPaymentVisibility: (visibility: boolean) => void;
 }
 
-export default function Footer({ setAddPaymentVisibility }: FooterProps) {
+export default function Footer(props: FooterProps) {
   return (
     <>
       <SafeAreaView style={styles.background} />
       <SafeAreaView style={styles.circle} />
       <TouchableOpacity
         style={[styles.centerButton]}
-        onPress={() => setAddPaymentVisibility(true)}
+        onPress={() => props.setAddPaymentVisibility(true)}
       >
         <Ionicons name="add-outline" size={60} color="black" />
       </TouchableOpacity>

@@ -5,15 +5,15 @@ interface BalanceProps {
   balance: number;
 }
 
-export default function Balance({ balance }: BalanceProps) {
+export default function Balance(props: BalanceProps) {
   const determineTextStyling = () => {
-    if (balance > 0) return styles.positiveBalance;
-    return balance === 0 ? styles.nullBalance : styles.negativeBalance;
+    if (props.balance > 0) return styles.positiveBalance;
+    return props.balance === 0 ? styles.nullBalance : styles.negativeBalance;
   };
 
   return (
     <View style={styles.balanceContainer}>
-      <Text style={[determineTextStyling(), styles.text]}>{balance}</Text>
+      <Text style={[determineTextStyling(), styles.text]}>{props.balance}</Text>
     </View>
   );
 }

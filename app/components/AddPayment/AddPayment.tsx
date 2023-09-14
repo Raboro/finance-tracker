@@ -9,26 +9,22 @@ interface AddPaymentProps {
   updateBalance: (balance: number) => void;
 }
 
-export default function AddPayment({
-  visibility,
-  setAddPaymentVisibility,
-  updateBalance,
-}: AddPaymentProps) {
-  const [input, updateInput] = useState(0);
+export default function AddPayment(props: AddPaymentProps) {
+const [input, updateInput] = useState(0);
 
   const resetModal = () => {
-    setAddPaymentVisibility(false);
+    props.setAddPaymentVisibility(false);
     updateInput(0);
   };
 
   const submit = () => {
-    updateBalance(input);
+    props.updateBalance(input);
     resetModal();
   };
 
   return (
     <Modal
-      visible={visibility}
+      visible={props.visibility}
       onRequestClose={resetModal}
       animationType="slide"
       presentationStyle="pageSheet"
