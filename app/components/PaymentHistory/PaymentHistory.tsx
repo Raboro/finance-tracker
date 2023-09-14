@@ -8,15 +8,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 export default function PaymentHistory({ payments }: { payments: Payment[] }) {
   const [listVisibility, setListVisibility] = useState(false);
 
-  const updateListVisibility = () => {
-    setListVisibility((prev) => !prev);
-  }
-
   return (
     <View style={[styles.container, listVisibility ? {} : styles.containerSmall]}>
       <Text style={styles.heading}>List of Payments</Text>
       <View style={[styles.expand, listVisibility ? styles.expandMore : {}]}>
-        <MaterialIcons name="expand-more" size={35} color="black" onPress={updateListVisibility}/>
+        <MaterialIcons name="expand-more" size={35} color="black" onPress={() => setListVisibility((prev) => !prev)}/>
       </View>
       { listVisibility && 
         <FlatList
