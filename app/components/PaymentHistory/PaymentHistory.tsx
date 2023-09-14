@@ -12,7 +12,11 @@ export default function PaymentHistory({ payments }: { payments: Payment[] }) {
     <View style={[styles.container, listVisibility ? {} : styles.containerSmall]}>
       <Text style={styles.heading}>List of Payments</Text>
       <View style={[styles.expand, listVisibility ? styles.expandMore : {}]}>
-        <MaterialIcons name="expand-more" size={35} color="black" onPress={() => setListVisibility((prev) => !prev)}/>
+        { listVisibility ? 
+            <MaterialIcons name="expand-less" size={35} color="black" onPress={() => setListVisibility(false)} />
+            :
+            <MaterialIcons name="expand-more" size={35} color="black" onPress={() => setListVisibility(true)}/>
+        }      
       </View>
       { listVisibility && 
         <FlatList
