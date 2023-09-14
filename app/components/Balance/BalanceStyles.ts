@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   balanceContainer: {
     justifyContent: 'center',
     alignContent: 'center',
-    marginTop: '30%',
+    marginTop: '20%',
   },
 
   positiveBalance: {
