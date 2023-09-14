@@ -14,6 +14,22 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
   },
 
+  containerSmall: {
+    marginBottom: '120%',
+  },
+
+  expand: {
+    position: 'absolute',
+    right: 0,
+    marginRight: '5%',
+    top: 0,
+    marginTop: '8%'
+  },
+
+  expandMore: {
+    marginTop: '3%'
+  },
+
   heading: {
     textAlign: 'center',
     marginVertical: '5%',
