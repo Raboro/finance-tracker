@@ -10,7 +10,8 @@ export default function App() {
   const [balance, setBalance] = useState(0);
   const [addPaymentVisibility, setAddPaymentVisibility] = useState(false);
 
-  const updateBalance = (update: number) => setBalance(balance + (update.toString() === 'NaN' ? 0 : update));
+  const updateBalance = (update: number) =>
+    setBalance(balance + (update.toString() === 'NaN' ? 0 : update));
 
   return (
     <SafeAreaView style={styles.container}>

@@ -12,7 +12,7 @@ interface AddPaymentProps {
 export default function AddPayment({
   visibility,
   setAddPaymentVisibility,
-  updateBalance
+  updateBalance,
 }: AddPaymentProps) {
   const [input, updateInput] = useState(0);
 
@@ -46,7 +46,7 @@ export default function AddPayment({
         <TextInput
           style={styles.paymentInput}
           placeholder="Payment"
-          keyboardType="numeric" 
+          keyboardType="numeric"
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
