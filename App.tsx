@@ -12,7 +12,7 @@ export default function App() {
 
   const updateBalance = (update: number) => {
     setBalance(balance + (update.toString() === 'NaN' ? 0 : update));
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
