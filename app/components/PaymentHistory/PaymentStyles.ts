@@ -23,11 +23,11 @@ export const styles = StyleSheet.create({
     right: 0,
     marginRight: '5%',
     top: 0,
-    marginTop: '8%'
+    marginTop: '8%',
   },
 
   expandMore: {
-    marginTop: '3%'
+    marginTop: '3%',
   },
 
   heading: {
