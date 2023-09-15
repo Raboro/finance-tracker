@@ -57,6 +57,9 @@ jobs:
           bun install
           npm install
 
+      - name: Pull changes
+        run: git pull
+
       - name: Fix eslint issues
         run: npm run lint:fix
 
