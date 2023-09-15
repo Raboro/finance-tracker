@@ -1,7 +1,7 @@
-import { Modal, Pressable, TextInput, View, Text } from 'react-native';
-import { styles } from './AddPaymentStyles';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { Modal, Pressable, Text, TextInput, View } from 'react-native';
+import { styles } from './AddPaymentStyles';
 
 interface AddPaymentProps {
   visibility: boolean;

@@ -1,9 +1,9 @@
+import { MaterialIcons } from '@expo/vector-icons';
+import { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import Payment from '../../logic/Payment';
-import { styles } from './PaymentStyles';
 import PaymentItem from '../Payment/PaymentItem';
-import { useState } from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import { styles } from './PaymentStyles';
 
 export default function PaymentHistory({ payments }: { payments: Payment[] }) {
   const [listVisibility, setListVisibility] = useState(false);
