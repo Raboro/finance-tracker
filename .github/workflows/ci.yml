@@ -8,7 +8,7 @@ on:
 
 jobs:
   organizeImports_lint_format:
-    name: Lint and Format
+    name: Organize Imports, Lint and Format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
