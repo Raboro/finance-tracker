@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "lint:fix": "sh scripts/lint.sh fix",
     "lint": "sh scripts/lint.sh",
-    "format": "prettier --write \"**/*.+(js|ts|tsx)\""
+    "format": "prettier --write \"**/*.+(js|ts|tsx)\"",
+    "organizeImports": "organize-imports-cli tsconfig[.*].json"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -25,6 +26,7 @@
     "@typescript-eslint/parser": "^6.7.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "organize-imports-cli": "^0.10.0",
     "prettier": "^3.0.3",
     "typescript": "^5.1.3"
   },
