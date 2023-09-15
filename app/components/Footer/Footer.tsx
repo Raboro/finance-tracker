@@ -1,6 +1,6 @@
-import { TouchableOpacity, SafeAreaView } from 'react-native';
-import { styles } from './FooterStyles';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { styles } from './FooterStyles';
 
 interface FooterProps {
   setAddPaymentVisibility: (visibility: boolean) => void;
