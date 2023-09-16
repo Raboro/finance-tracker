@@ -6,21 +6,12 @@ interface ExpandIconProps {
 }
 
 export default function ExpandIcon(props: ExpandIconProps) {
-    return <>
-        {props.expand ? (
-            <MaterialIcons
-              name="expand-less"
+    return (
+      <MaterialIcons
+              name={props.expand ? "expand-less" : "expand-more"}
               size={35}
               color="black"
-              onPress={() => props.changeState(false)}
+              onPress={() => props.changeState(!props.expand)}
             />
-          ) : (
-            <MaterialIcons
-              name="expand-more"
-              size={35}
-              color="black"
-              onPress={() => props.changeState(true)}
-            />
-          )}
-    </>
+    );
 }
