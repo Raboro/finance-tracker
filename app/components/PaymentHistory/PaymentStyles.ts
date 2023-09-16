@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
   },
 
   expandMore: {
-    marginTop: '3%',
+    marginTop: '8%',
   },
 
   heading: {
@@ -35,4 +35,8 @@ export const styles = StyleSheet.create({
     marginVertical: '5%',
     fontWeight: 'bold',
   },
+
+  headingMore: {
+    marginTop: '10.5%'
+  }
 });

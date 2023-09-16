@@ -13,7 +13,7 @@ export default function PaymentHistory({ payments }: { payments: Payment[] }) {
       style={[styles.container, listVisibility ? {} : styles.containerSmall]}
     >
       <Text
-        style={styles.heading}
+        style={[styles.heading, listVisibility ? styles.headingMore : {}]}
         onPress={() => setListVisibility(!listVisibility)}
       >
         List of Payments
