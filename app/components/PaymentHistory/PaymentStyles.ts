@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     marginBottom: '30%',
     marginTop: '15%',
     borderRadius: 15,
+    elevation: 5
   },
 
   containerSmall: {
