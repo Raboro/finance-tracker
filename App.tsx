@@ -5,8 +5,8 @@ import AddPayment from './app/components/AddPayment/AddPayment';
 import Balance from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
 import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
-import Payment from './app/logic/Payment';
 import Settings from './app/components/Settings/Settings';
+import Payment from './app/logic/Payment';
 
 export default function App() {
   const [balance, setBalance] = useState(0);
