@@ -1,9 +1,9 @@
-import { MaterialIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import Payment from '../../logic/Payment';
 import PaymentItem from '../Payment/PaymentItem';
 import { styles } from './PaymentStyles';
+import ExpandIcon from '../ExpandIcon/ExpandIcon';
 
 export default function PaymentHistory({ payments }: { payments: Payment[] }) {
   const [listVisibility, setListVisibility] = useState(false);
@@ -20,21 +20,7 @@ export default function PaymentHistory({ payments }: { payments: Payment[] }) {
       </Text>
 
       <View style={[styles.expand, listVisibility ? styles.expandMore : {}]}>
-        {listVisibility ? (
-          <MaterialIcons
-            name="expand-less"
-            size={35}
-            color="black"
-            onPress={() => setListVisibility(false)}
-          />
-        ) : (
-          <MaterialIcons
-            name="expand-more"
-            size={35}
-            color="black"
-            onPress={() => setListVisibility(true)}
-          />
-        )}
+        <ExpandIcon expand={listVisibility} changeState={setListVisibility}/>
       </View>
 
       {listVisibility && (
