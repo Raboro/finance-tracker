@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Modal, Pressable, Text, TextInput, View } from 'react-native';
-import { styles } from './AddPaymentStyles';
 import { border } from '../../utils/Border';
+import { styles } from './AddPaymentStyles';
 
 interface AddPaymentProps {
   visibility: boolean;

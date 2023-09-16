@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: '30%',
     marginTop: '15%',
-    elevation: 5
+    elevation: 5,
   },
 
   containerSmall: {
@@ -35,6 +35,6 @@ export const styles = StyleSheet.create({
   },
 
   headingMore: {
-    marginTop: '10.5%'
-  }
+    marginTop: '10.5%',
+  },
 });
