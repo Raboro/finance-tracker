@@ -4,13 +4,14 @@ import Payment from '../../logic/Payment';
 import PaymentItem from '../Payment/PaymentItem';
 import { styles } from './PaymentStyles';
 import ExpandIcon from '../ExpandIcon/ExpandIcon';
+import { border } from '../../utils/Border';
 
 export default function PaymentHistory({ payments }: { payments: Payment[] }) {
   const [listVisibility, setListVisibility] = useState(false);
 
   return (
     <View
-      style={[styles.container, listVisibility ? {} : styles.containerSmall]}
+      style={[styles.container, border.default, listVisibility ? {} : styles.containerSmall]}
     >
       <Text
         style={[styles.heading, listVisibility ? styles.headingMore : {}]}

@@ -23,25 +23,19 @@ export const styles = StyleSheet.create({
   paymentInput: {
     height: 40,
     margin: 12,
-    borderWidth: 3,
-    borderColor: COLORS.primary,
     padding: 10,
-    borderRadius: 10,
     right: 0,
   },
 
   submitButton: {
     right: 0,
     marginTop: '180%',
-    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal: 32,
     elevation: 3,
     backgroundColor: COLORS.tertiary,
-    borderColor: COLORS.primary,
-    borderWidth: 3,
   },
 
   pressedSubmitButton: {

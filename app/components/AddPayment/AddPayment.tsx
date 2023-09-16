@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Modal, Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './AddPaymentStyles';
+import { border } from '../../utils/Border';
 
 interface AddPaymentProps {
   visibility: boolean;
@@ -40,7 +41,7 @@ export default function AddPayment(props: AddPaymentProps) {
         </View>
 
         <TextInput
-          style={styles.paymentInput}
+          style={[styles.paymentInput, border.default]}
           placeholder="Payment"
           keyboardType="numeric"
           onChangeText={(text) => updateInput(parseFloat(text))}
@@ -49,6 +50,7 @@ export default function AddPayment(props: AddPaymentProps) {
         <Pressable
           style={({ pressed }) => [
             styles.submitButton,
+            border.default,
             pressed && styles.pressedSubmitButton,
           ]}
           onPress={submit}
