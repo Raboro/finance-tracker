@@ -23,7 +23,8 @@ export const styles = StyleSheet.create({
   paymentInput: {
     height: 40,
     margin: 12,
-    borderWidth: 1,
+    borderWidth: 3,
+    borderColor: COLORS.primary,
     padding: 10,
     borderRadius: 10,
     right: 0,
