@@ -4,7 +4,9 @@ import Payment from './Payment';
 export default class Storage {
   async getAllPayments(): Promise<Payment[]> {
     try {
-      const items = await AsyncStorage.multiGet(await AsyncStorage.getAllKeys());
+      const items = await AsyncStorage.multiGet(
+        await AsyncStorage.getAllKeys(),
+      );
       if (items.length === 0) return [];
       const payments: Payment[] = [];
       for (const item of items) {

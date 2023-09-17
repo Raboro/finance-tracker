@@ -6,8 +6,8 @@ import BalanceUI from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
 import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 import Settings from './app/components/Settings/Settings';
-import Payment from './app/logic/Payment';
 import Balance from './app/logic/Balance';
+import Payment from './app/logic/Payment';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,21 +36,23 @@ export default function App() {
     const updatedBalanceObj = balanceObj ? balanceObj : new Balance();
     updatedBalanceObj.addPayments(update);
 
-    updatedBalanceObj.getPayments()
+    updatedBalanceObj
+      .getPayments()
       .then((updatedPayments: React.SetStateAction<Payment[]>) => {
         updatePayments(updatedPayments);
 
-        updatedBalanceObj.recalculate()
-          .then(updatedBalance => {
+        updatedBalanceObj
+          .recalculate()
+          .then((updatedBalance) => {
             setBalance(updatedBalance);
             reloadApp();
           })
-          .catch(error => {
-            console.error("Error updating balance:", error);
+          .catch((error) => {
+            console.error('Error updating balance:', error);
           });
       })
-      .catch(error => {
-        console.error("Error updating payments:", error);
+      .catch((error) => {
+        console.error('Error updating payments:', error);
       });
   };
 
