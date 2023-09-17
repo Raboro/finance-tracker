@@ -33,7 +33,7 @@ export default function App() {
   const updateBalance = (update: number) => {
     if (noUpdateNeeded(update)) return;
 
-    const updatedBalanceObj = balanceObj ? balanceObj : new Balance();
+    const updatedBalanceObj = balanceObj || new Balance();
     updatedBalanceObj.addPayments(update);
 
     updatedBalanceObj
