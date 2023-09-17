@@ -1,5 +1,6 @@
 import ClosingIcon from '../ClosingIcon/ClosingIcon';
-import { Modal } from 'react-native';
+import { Modal, View } from 'react-native';
+import { styles } from './PaymentItemOptionsModalStyles';
 
 interface PaymentItemOptionsModalProps {
   visibilityChange: (change: boolean) => void;
@@ -10,7 +11,9 @@ export default function PaymentItemOptionsModal(
 ) {
   return (
     <Modal animationType="slide" presentationStyle="pageSheet">
-      <ClosingIcon visibilityChange={props.visibilityChange} />
+      <View style={styles.container}>
+        <ClosingIcon visibilityChange={props.visibilityChange} />
+      </View>
     </Modal>
   );
 }
