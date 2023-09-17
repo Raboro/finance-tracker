@@ -5,7 +5,7 @@ interface BalanceProps {
   balance: number;
 }
 
-export default function Balance(props: BalanceProps) {
+export default function BalanceUI(props: BalanceProps) {
   const determineTextStyling = () => {
     if (props.balance > 0) return styles.positiveBalance;
     return props.balance === 0 ? styles.nullBalance : styles.negativeBalance;
