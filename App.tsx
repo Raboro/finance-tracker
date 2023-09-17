@@ -17,31 +17,16 @@ export default function App() {
   const [payments, updatePayments] = useState<Payment[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const newBalanceObj = new Balance();
-      await newBalanceObj.fetchPayments();
-      const initialBalance = await newBalanceObj.recalculate();
-      const initialPayments = await newBalanceObj.getPayments();
-
-      setBalanceObj(newBalanceObj);
-      setBalance(initialBalance);
-      updatePayments(initialPayments);
-      setIsLoading(false);
-    };
-
-    fetchData();
+    reloadApp();
   }, []);
 
-  const resetApp = async () => {
+  const reloadApp = async () => {
     setIsLoading(true);
     const newBalanceObj = new Balance();
     await newBalanceObj.fetchPayments();
-    const initialBalance = await newBalanceObj.recalculate();
-    const initialPayments = await newBalanceObj.getPayments();
-
     setBalanceObj(newBalanceObj);
-    setBalance(initialBalance);
-    updatePayments(initialPayments);
+    setBalance(await newBalanceObj.recalculate());
+    updatePayments(await newBalanceObj.getPayments());
     setIsLoading(false);
   };
 
@@ -58,7 +43,7 @@ export default function App() {
         updatedBalanceObj.recalculate()
           .then(updatedBalance => {
             setBalance(updatedBalance);
-            resetApp();
+            reloadApp();
           })
           .catch(error => {
             console.error("Error updating balance:", error);
