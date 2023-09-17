@@ -50,10 +50,7 @@ export default function App() {
         updatePayments(updatedPayments);
         updatedBalanceObj
           .recalculate()
-          .then((updatedBalance) => {
-            setBalance(updatedBalance);
-            reloadApp();
-          })
+          .then(() => reloadApp())
           .catch((error) => console.error('Error updating balance:', error));
       })
       .catch((error) => console.error('Error updating payments:', error));
