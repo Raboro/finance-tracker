@@ -58,7 +58,6 @@ export default function App() {
         console.error('Error adding payments:', error);
       });
   };
-  
 
   const noUpdateNeeded = (update: number) => {
     return isNaN(update) || update === 0;
