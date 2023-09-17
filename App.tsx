@@ -37,57 +37,33 @@ export default function App() {
     const updatedBalanceObj = balanceObj || new Balance();
     updatedBalanceObj
       .addPayment(update)
-      .then(() => {
+      .then(() => updateApp(updatedBalanceObj))
+      .catch((error) => console.error('Error adding payments:', error));
+  };
+
+  const updateApp = (updatedBalanceObj: Balance) => {
+    updatedBalanceObj
+      .getPayments()
+      .then((updatedPayments: Payment[]) => {
+        updatePayments(updatedPayments);
         updatedBalanceObj
-          .getPayments()
-          .then((updatedPayments: Payment[]) => {
-            updatePayments(updatedPayments);
-            updatedBalanceObj
-              .recalculate()
-              .then((updatedBalance) => {
-                setBalance(updatedBalance);
-                reloadApp();
-              })
-              .catch((error) => {
-                console.error('Error updating balance:', error);
-              });
+          .recalculate()
+          .then((updatedBalance) => {
+            setBalance(updatedBalance);
+            reloadApp();
           })
-          .catch((error) => {
-            console.error('Error updating payments:', error);
-          });
+          .catch((error) => console.error('Error updating balance:', error));
       })
-      .catch((error) => {
-        console.error('Error adding payments:', error);
-      });
+      .catch((error) => console.error('Error updating payments:', error));
   };
 
   const removePayment = (id: string) => {
     const updatedBalanceObj = balanceObj || new Balance();
     updatedBalanceObj
       .removePayment(id)
-      .then(() => {
-        updatedBalanceObj
-          .getPayments()
-          .then((updatedPayments: Payment[]) => {
-            updatePayments(updatedPayments);
-            updatedBalanceObj
-              .recalculate()
-              .then((updatedBalance) => {
-                setBalance(updatedBalance);
-                reloadApp();
-              })
-              .catch((error) => {
-                console.error('Error updating balance:', error);
-              });
-          })
-          .catch((error) => {
-            console.error('Error updating payments:', error);
-          });
-      })
-      .catch((error) => {
-        console.error('Error removing payments:', error);
-      });
-  }
+      .then(() => updateApp(updatedBalanceObj))
+      .catch((error) => console.error('Error removing payments:', error));
+  };
 
   const noUpdateNeeded = (update: number) => {
     return isNaN(update) || update === 0;
