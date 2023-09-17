@@ -9,6 +9,7 @@ import Settings from './app/components/Settings/Settings';
 import Balance from './app/logic/Balance';
 import Payment from './app/logic/Payment';
 import { appStyles } from './app/utils/AppStyles';
+import Loading from './app/components/Loading/Loading';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +68,7 @@ export default function App() {
   return (
     <SafeAreaView style={appStyles.container}>
       {isLoading ? 
-        <Text>Loading</Text>
+        <Loading />
       :
         <>
           <StatusBar style="auto" />
