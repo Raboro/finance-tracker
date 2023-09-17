@@ -5,9 +5,15 @@ import { border } from '../../utils/Border';
 import ExpandIcon from '../ExpandIcon/ExpandIcon';
 import PaymentItem from '../Payment/PaymentItem';
 import { styles } from './PaymentStyles';
+import PaymentItemOptionsModal from '../PaymentItemOptionsModal/PaymentItemOptionsModal';
 
 export default function PaymentHistory({ payments }: { payments: Payment[] }) {
   const [listVisibility, setListVisibility] = useState(false);
+  const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
+
+  const openModal = (paymentId: string) => {
+    setOptionsModalVisibility(true);
+  }
 
   return (
     <View
@@ -28,12 +34,14 @@ export default function PaymentHistory({ payments }: { payments: Payment[] }) {
         <ExpandIcon expand={listVisibility} changeState={setListVisibility} />
       </View>
 
+      {optionsModalVisibility && <PaymentItemOptionsModal visibilityChange={setOptionsModalVisibility} />}
+
       {listVisibility && (
         <FlatList
           data={payments}
           keyExtractor={(item, index) => item.getKey() + index}
           renderItem={({ item, index }) => (
-            <PaymentItem key={item.getKey() + index} payment={item} />
+            <PaymentItem key={item.getKey() + index} payment={item} openModal={openModal} />
           )}
         />
       )}
