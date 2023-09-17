@@ -1,42 +1,97 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import AddPayment from './app/components/AddPayment/AddPayment';
-import Balance from './app/components/Balance/Balance';
+import BalanceUI from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
 import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 import Settings from './app/components/Settings/Settings';
 import Payment from './app/logic/Payment';
+import Balance from './app/logic/Balance';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [balanceObj, setBalanceObj] = useState<Balance | null>(null);
   const [balance, setBalance] = useState(0);
   const [addPaymentVisibility, setAddPaymentVisibility] = useState(false);
   const [payments, updatePayments] = useState<Payment[]>([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const newBalanceObj = new Balance();
+      await newBalanceObj.fetchPayments();
+      const initialBalance = await newBalanceObj.recalculate();
+      const initialPayments = await newBalanceObj.getPayments();
+
+      setBalanceObj(newBalanceObj);
+      setBalance(initialBalance);
+      updatePayments(initialPayments);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  const resetApp = async () => {
+    setIsLoading(true);
+    const newBalanceObj = new Balance();
+    await newBalanceObj.fetchPayments();
+    const initialBalance = await newBalanceObj.recalculate();
+    const initialPayments = await newBalanceObj.getPayments();
+
+    setBalanceObj(newBalanceObj);
+    setBalance(initialBalance);
+    updatePayments(initialPayments);
+    setIsLoading(false);
+  };
+
   const updateBalance = (update: number) => {
     if (noUpdateNeeded(update)) return;
-    updatePayments([...payments, new Payment(update)]);
-    setBalance(balance + update);
+
+    const updatedBalanceObj = balanceObj ? balanceObj : new Balance();
+    updatedBalanceObj.addPayments(update);
+
+    updatedBalanceObj.getPayments()
+      .then((updatedPayments: React.SetStateAction<Payment[]>) => {
+        updatePayments(updatedPayments);
+
+        updatedBalanceObj.recalculate()
+          .then(updatedBalance => {
+            setBalance(updatedBalance);
+            resetApp();
+          })
+          .catch(error => {
+            console.error("Error updating balance:", error);
+          });
+      })
+      .catch(error => {
+        console.error("Error updating payments:", error);
+      });
   };
 
   const noUpdateNeeded = (update: number) => {
-    return update.toString() === 'NaN' || update === 0;
+    return isNaN(update) || update === 0;
   };
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>Loading</Text>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Settings />
-      <Balance balance={balance} />
-
+      <BalanceUI balance={balance} />
       <PaymentHistory payments={payments} />
-
       <AddPayment
         visibility={addPaymentVisibility}
         setAddPaymentVisibility={setAddPaymentVisibility}
         updateBalance={updateBalance}
       />
-
       <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
     </SafeAreaView>
   );
