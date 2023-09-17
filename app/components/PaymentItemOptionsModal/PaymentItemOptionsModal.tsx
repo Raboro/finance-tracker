@@ -5,6 +5,8 @@ import { styles } from './PaymentItemOptionsModalStyles';
 
 interface PaymentItemOptionsModalProps {
   visibilityChange: (change: boolean) => void;
+  removePayment: () => void;
+  editPayment: () => void;
 }
 
 export default function PaymentItemOptionsModal(
@@ -15,8 +17,8 @@ export default function PaymentItemOptionsModal(
       <View style={styles.container}>
         <ClosingIcon visibilityChange={props.visibilityChange} />
         <View style={styles.buttonContainer}>
-          <PressableButton text="Edit" onPress={() => {}} />
-          <PressableButton text="Delete" onPress={() => {}} />
+          <PressableButton text="Edit" onPress={props.editPayment} />
+          <PressableButton text="Remove" onPress={props.removePayment} />
         </View>
       </View>
     </Modal>

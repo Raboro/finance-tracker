@@ -61,6 +61,34 @@ export default function App() {
       });
   };
 
+  const removePayment = (id: string) => {
+    const updatedBalanceObj = balanceObj || new Balance();
+    updatedBalanceObj
+      .removePayment(id)
+      .then(() => {
+        updatedBalanceObj
+          .getPayments()
+          .then((updatedPayments: Payment[]) => {
+            updatePayments(updatedPayments);
+            updatedBalanceObj
+              .recalculate()
+              .then((updatedBalance) => {
+                setBalance(updatedBalance);
+                reloadApp();
+              })
+              .catch((error) => {
+                console.error('Error updating balance:', error);
+              });
+          })
+          .catch((error) => {
+            console.error('Error updating payments:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error removing payments:', error);
+      });
+  }
+
   const noUpdateNeeded = (update: number) => {
     return isNaN(update) || update === 0;
   };
@@ -74,7 +102,7 @@ export default function App() {
           <StatusBar style="auto" />
           <Settings />
           <BalanceUI balance={balance} />
-          <PaymentHistory payments={payments} />
+          <PaymentHistory payments={payments} removePayment={removePayment} />
           <AddPayment
             visibility={addPaymentVisibility}
             setAddPaymentVisibility={setAddPaymentVisibility}

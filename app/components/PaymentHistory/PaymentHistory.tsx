@@ -7,11 +7,18 @@ import PaymentItem from '../Payment/PaymentItem';
 import PaymentItemOptionsModal from '../PaymentItemOptionsModal/PaymentItemOptionsModal';
 import { styles } from './PaymentStyles';
 
-export default function PaymentHistory({ payments }: { payments: Payment[] }) {
+interface PaymentHistoryProps {
+  payments: Payment[]
+  removePayment: (id: string) => void
+}
+
+export default function PaymentHistory(props: PaymentHistoryProps) {
   const [listVisibility, setListVisibility] = useState(false);
   const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
+  const [selectedPayment, setSelectedPayment] = useState('');
 
   const openModal = (paymentId: string) => {
+    setSelectedPayment(paymentId);
     setOptionsModalVisibility(true);
   };
 
@@ -35,18 +42,22 @@ export default function PaymentHistory({ payments }: { payments: Payment[] }) {
       </View>
 
       {optionsModalVisibility && (
-        <PaymentItemOptionsModal visibilityChange={setOptionsModalVisibility} />
+        <PaymentItemOptionsModal 
+          visibilityChange={setOptionsModalVisibility} 
+          editPayment={() => {}}
+          removePayment={() => props.removePayment(selectedPayment)}
+        />
       )}
 
       {listVisibility && (
         <FlatList
-          data={payments}
+          data={props.payments}
           keyExtractor={(item, index) => item.getKey() + index}
           renderItem={({ item, index }) => (
             <PaymentItem
               key={item.getKey() + index}
               payment={item}
-              openModal={openModal}
+              openModal={() => openModal(item.getKey())}
             />
           )}
         />
