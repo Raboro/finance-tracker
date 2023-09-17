@@ -13,13 +13,6 @@ export const styles = StyleSheet.create({
     borderColor: COLORS.primary,
   },
 
-  closeIcon: {
-    position: 'absolute',
-    right: 0,
-    marginRight: 10,
-    marginTop: 10,
-  },
-
   paymentInput: {
     height: 40,
     margin: 12,

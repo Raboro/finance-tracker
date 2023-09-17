@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Modal, Pressable, Text, TextInput, View } from 'react-native';
 import { border } from '../../utils/Border';
 import { styles } from './AddPaymentStyles';
+import ClosingIcon from '../ClosingIcon/ClosingIcon';
 
 interface AddPaymentProps {
   visibility: boolean;
@@ -31,14 +32,7 @@ export default function AddPayment(props: AddPaymentProps) {
       presentationStyle="pageSheet"
     >
       <View style={styles.container}>
-        <View style={styles.closeIcon}>
-          <Ionicons
-            name="close-sharp"
-            size={40}
-            color="black"
-            onPress={() => resetModal()}
-          />
-        </View>
+        <ClosingIcon visibilityChange={resetModal} />
 
         <TextInput
           style={[styles.paymentInput, border.default]}
