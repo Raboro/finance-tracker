@@ -64,26 +64,24 @@ export default function App() {
     return isNaN(update) || update === 0;
   };
 
-  if (isLoading) {
-    return (
-      <SafeAreaView style={appStyles.container}>
-        <Text>Loading</Text>
-      </SafeAreaView>
-    );
-  }
-
   return (
     <SafeAreaView style={appStyles.container}>
-      <StatusBar style="auto" />
-      <Settings />
-      <BalanceUI balance={balance} />
-      <PaymentHistory payments={payments} />
-      <AddPayment
-        visibility={addPaymentVisibility}
-        setAddPaymentVisibility={setAddPaymentVisibility}
-        updateBalance={updateBalance}
-      />
-      <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
+      {isLoading ? 
+        <Text>Loading</Text>
+      :
+        <>
+          <StatusBar style="auto" />
+          <Settings />
+          <BalanceUI balance={balance} />
+          <PaymentHistory payments={payments} />
+          <AddPayment
+            visibility={addPaymentVisibility}
+            setAddPaymentVisibility={setAddPaymentVisibility}
+            updateBalance={updateBalance}
+            />
+          <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
+        </>
+      }
     </SafeAreaView>
   );
 }
