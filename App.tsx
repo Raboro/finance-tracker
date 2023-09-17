@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native';
 import AddPayment from './app/components/AddPayment/AddPayment';
 import BalanceUI from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
-import Loading from './app/components/Loading/Loading';
+import LoadingCircle from './app/components/Loading/Loading';
 import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 import Settings from './app/components/Settings/Settings';
 import Balance from './app/logic/Balance';
@@ -68,7 +68,7 @@ export default function App() {
   return (
     <SafeAreaView style={appStyles.container}>
       {isLoading ? (
-        <Loading />
+        <LoadingCircle />
       ) : (
         <>
           <StatusBar style="auto" />
