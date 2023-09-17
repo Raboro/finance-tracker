@@ -2,6 +2,22 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Payment from './Payment';
 
 export default class Storage {
+  async getAllPayments(): Promise<Payment[]> {
+    try {
+      const items = await AsyncStorage.multiGet(await AsyncStorage.getAllKeys());
+      if (items.length === 0) return [];
+      const payments: Payment[] = [];
+      for (const item of items) {
+        const parsed = JSON.parse(item[1]?.toString() ?? '');
+        payments.push(new Payment(parsed.value, parsed.id));
+      }
+      return payments;
+    } catch (e) {
+      console.error('ERROR' + e);
+    }
+    return [];
+  }
+
   async generateKey(): Promise<string> {
     try {
       const keys = await AsyncStorage.getAllKeys();
