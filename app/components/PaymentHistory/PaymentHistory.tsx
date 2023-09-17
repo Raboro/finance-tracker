@@ -30,9 +30,11 @@ export default function PaymentHistory({ payments }: { payments: Payment[] }) {
 
       {listVisibility && (
         <FlatList
-          data={payments}
-          renderItem={({ item }) => <PaymentItem payment={item} />}
-        />
+        data={payments}
+        keyExtractor={(item, index) => item.getKey() + index}        renderItem={({ item, index }) => (
+          <PaymentItem key={item.getKey() + index} payment={item} />
+        )}
+      />
       )}
     </View>
   );
