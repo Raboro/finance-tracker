@@ -8,6 +8,7 @@ import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 import Settings from './app/components/Settings/Settings';
 import Balance from './app/logic/Balance';
 import Payment from './app/logic/Payment';
+import { appStyles } from './app/utils/AppStyles';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -65,14 +66,14 @@ export default function App() {
 
   if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={appStyles.container}>
         <Text>Loading</Text>
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={appStyles.container}>
       <StatusBar style="auto" />
       <Settings />
       <BalanceUI balance={balance} />
@@ -86,12 +87,3 @@ export default function App() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
