@@ -17,6 +17,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 10,
-    marginTop: '15%'
+    marginTop: '15%',
   },
 });

@@ -1,9 +1,9 @@
-import { View } from "react-native";
-import { styles } from "./ClosingIconStyles";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
+import { View } from 'react-native';
+import { styles } from './ClosingIconStyles';
 
 interface ClosingIconProps {
-    visibilityChange: (change: boolean) => void;
+  visibilityChange: (change: boolean) => void;
 }
 
 export default function ClosingIcon(props: ClosingIconProps) {

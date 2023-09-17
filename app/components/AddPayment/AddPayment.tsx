@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Modal, TextInput, View } from 'react-native';
 import { border } from '../../utils/Border';
-import { styles } from './AddPaymentStyles';
 import ClosingIcon from '../ClosingIcon/ClosingIcon';
 import PressableButton from '../PressableButton/PressableButton';
+import { styles } from './AddPaymentStyles';
 
 interface AddPaymentProps {
   visibility: boolean;
@@ -41,7 +41,11 @@ export default function AddPayment(props: AddPaymentProps) {
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
-        <PressableButton text='Submit' onPress={submit} style={{marginTop: '180%'}}/>
+        <PressableButton
+          text="Submit"
+          onPress={submit}
+          style={{ marginTop: '180%' }}
+        />
       </View>
     </Modal>
   );

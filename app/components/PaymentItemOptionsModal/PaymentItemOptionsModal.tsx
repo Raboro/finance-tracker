@@ -1,7 +1,7 @@
-import ClosingIcon from '../ClosingIcon/ClosingIcon';
 import { Modal, View } from 'react-native';
-import { styles } from './PaymentItemOptionsModalStyles';
+import ClosingIcon from '../ClosingIcon/ClosingIcon';
 import PressableButton from '../PressableButton/PressableButton';
+import { styles } from './PaymentItemOptionsModalStyles';
 
 interface PaymentItemOptionsModalProps {
   visibilityChange: (change: boolean) => void;
@@ -15,8 +15,8 @@ export default function PaymentItemOptionsModal(
       <View style={styles.container}>
         <ClosingIcon visibilityChange={props.visibilityChange} />
         <View style={styles.buttonContainer}>
-          <PressableButton text='Edit' onPress={() => {}}/>
-          <PressableButton text='Delete' onPress={() => {}} />
+          <PressableButton text="Edit" onPress={() => {}} />
+          <PressableButton text="Delete" onPress={() => {}} />
         </View>
       </View>
     </Modal>
