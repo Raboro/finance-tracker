@@ -32,29 +32,33 @@ export default function App() {
 
   const updateBalance = (update: number) => {
     if (noUpdateNeeded(update)) return;
-
     const updatedBalanceObj = balanceObj || new Balance();
-    updatedBalanceObj.addPayments(update);
-
     updatedBalanceObj
-      .getPayments()
-      .then((updatedPayments: React.SetStateAction<Payment[]>) => {
-        updatePayments(updatedPayments);
-
+      .addPayments(update)
+      .then(() => {
         updatedBalanceObj
-          .recalculate()
-          .then((updatedBalance) => {
-            setBalance(updatedBalance);
-            reloadApp();
+          .getPayments()
+          .then((updatedPayments: Payment[]) => {
+            updatePayments(updatedPayments);
+            updatedBalanceObj
+              .recalculate()
+              .then((updatedBalance) => {
+                setBalance(updatedBalance);
+                reloadApp();
+              })
+              .catch((error) => {
+                console.error('Error updating balance:', error);
+              });
           })
           .catch((error) => {
-            console.error('Error updating balance:', error);
+            console.error('Error updating payments:', error);
           });
       })
       .catch((error) => {
-        console.error('Error updating payments:', error);
+        console.error('Error adding payments:', error);
       });
   };
+  
 
   const noUpdateNeeded = (update: number) => {
     return isNaN(update) || update === 0;
