@@ -41,6 +41,8 @@ export default function App() {
       .catch((error) => console.error('Error adding payments:', error));
   };
 
+  const noUpdateNeeded = (update: number) => isNaN(update) || update === 0;
+
   const updateApp = (updatedBalanceObj: Balance) => {
     updatedBalanceObj
       .getPayments()
@@ -63,10 +65,6 @@ export default function App() {
       .removePayment(id)
       .then(() => updateApp(updatedBalanceObj))
       .catch((error) => console.error('Error removing payments:', error));
-  };
-
-  const noUpdateNeeded = (update: number) => {
-    return isNaN(update) || update === 0;
   };
 
   return (
