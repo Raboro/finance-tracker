@@ -8,8 +8,8 @@ import PaymentItemOptionsModal from '../PaymentItemOptionsModal/PaymentItemOptio
 import { styles } from './PaymentStyles';
 
 interface PaymentHistoryProps {
-  payments: Payment[]
-  removePayment: (id: string) => void
+  payments: Payment[];
+  removePayment: (id: string) => void;
 }
 
 export default function PaymentHistory(props: PaymentHistoryProps) {
@@ -42,8 +42,8 @@ export default function PaymentHistory(props: PaymentHistoryProps) {
       </View>
 
       {optionsModalVisibility && (
-        <PaymentItemOptionsModal 
-          visibilityChange={setOptionsModalVisibility} 
+        <PaymentItemOptionsModal
+          visibilityChange={setOptionsModalVisibility}
           editPayment={() => {}}
           removePayment={() => props.removePayment(selectedPayment)}
         />
