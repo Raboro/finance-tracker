@@ -3,8 +3,18 @@ import Payment from '../../logic/Payment';
 import { border } from '../../utils/Border';
 import { styles } from './PaymentStyles';
 
-export default function PaymentItem({ payment }: { payment: Payment }) {
+interface PaymentItemProps {
+  payment: Payment;
+  openModal: (paymentId: string) => void;
+}
+
+export default function PaymentItem(props: PaymentItemProps) {
   return (
-    <Text style={[styles.container, border.default]}>{payment.value}</Text>
+    <Text
+      style={[styles.container, border.default]}
+      onPress={() => props.openModal(props.payment.getKey())}
+    >
+      {props.payment.value}
+    </Text>
   );
 }

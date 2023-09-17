@@ -6,17 +6,17 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 60,
     borderRadius: 20,
-    marginVertical: 80,
+    marginVertical: 300,
     marginHorizontal: 20,
     backgroundColor: COLORS.secondary,
     borderWidth: 5,
     borderColor: COLORS.primary,
   },
 
-  paymentInput: {
-    height: 40,
-    margin: 12,
-    padding: 10,
-    right: 0,
+  buttonContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: '15%',
   },
 });

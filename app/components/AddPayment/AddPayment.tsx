@@ -1,7 +1,8 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { Modal, Pressable, Text, TextInput, View } from 'react-native';
+import { Modal, TextInput, View } from 'react-native';
 import { border } from '../../utils/Border';
+import ClosingIcon from '../ClosingIcon/ClosingIcon';
+import PressableButton from '../PressableButton/PressableButton';
 import { styles } from './AddPaymentStyles';
 
 interface AddPaymentProps {
@@ -31,14 +32,7 @@ export default function AddPayment(props: AddPaymentProps) {
       presentationStyle="pageSheet"
     >
       <View style={styles.container}>
-        <View style={styles.closeIcon}>
-          <Ionicons
-            name="close-sharp"
-            size={40}
-            color="black"
-            onPress={() => resetModal()}
-          />
-        </View>
+        <ClosingIcon visibilityChange={resetModal} />
 
         <TextInput
           style={[styles.paymentInput, border.default]}
@@ -47,16 +41,11 @@ export default function AddPayment(props: AddPaymentProps) {
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
-        <Pressable
-          style={({ pressed }) => [
-            styles.submitButton,
-            border.default,
-            pressed && styles.pressedSubmitButton,
-          ]}
+        <PressableButton
+          text="Submit"
           onPress={submit}
-        >
-          <Text style={styles.submitText}>Submit</Text>
-        </Pressable>
+          style={{ marginTop: '180%' }}
+        />
       </View>
     </Modal>
   );
