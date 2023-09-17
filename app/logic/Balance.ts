@@ -10,13 +10,10 @@ export default class Balance {
     this.payments = await this.storage.getAllPayments();
   }
 
-  async addPayments(...payments: number[]): Promise<void> {
-    for (const payment of payments) {
-      const key = await this.storage.generateKey();
-      const paymentObj = new Payment(payment, key);
-      await this.storage.insertPayment(paymentObj);
-      this.payments.push(paymentObj);
-    }
+  async addPayment(payment: number): Promise<void> {
+    const paymentObj = new Payment(payment, await this.storage.generateKey());
+    await this.storage.insertPayment(paymentObj);
+    this.payments.push(paymentObj);
   }
 
   async updatePayment(payment: Payment): Promise<void> {

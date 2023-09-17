@@ -34,7 +34,7 @@ export default function App() {
     if (noUpdateNeeded(update)) return;
     const updatedBalanceObj = balanceObj || new Balance();
     updatedBalanceObj
-      .addPayments(update)
+      .addPayment(update)
       .then(() => {
         updatedBalanceObj
           .getPayments()
