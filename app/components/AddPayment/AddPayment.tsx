@@ -1,9 +1,9 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { Modal, Pressable, Text, TextInput, View } from 'react-native';
+import { Modal, TextInput, View } from 'react-native';
 import { border } from '../../utils/Border';
 import { styles } from './AddPaymentStyles';
 import ClosingIcon from '../ClosingIcon/ClosingIcon';
+import PressableButton from '../PressableButton/PressableButton';
 
 interface AddPaymentProps {
   visibility: boolean;
@@ -41,16 +41,7 @@ export default function AddPayment(props: AddPaymentProps) {
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
-        <Pressable
-          style={({ pressed }) => [
-            styles.submitButton,
-            border.default,
-            pressed && styles.pressedSubmitButton,
-          ]}
-          onPress={submit}
-        >
-          <Text style={styles.submitText}>Submit</Text>
-        </Pressable>
+        <PressableButton text='Submit' onPress={submit} style={{marginTop: '180%'}}/>
       </View>
     </Modal>
   );

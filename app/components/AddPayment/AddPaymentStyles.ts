@@ -19,27 +19,4 @@ export const styles = StyleSheet.create({
     padding: 10,
     right: 0,
   },
-
-  submitButton: {
-    right: 0,
-    marginTop: '180%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    elevation: 3,
-    backgroundColor: COLORS.tertiary,
-  },
-
-  pressedSubmitButton: {
-    opacity: 0.9,
-    transform: [{ scaleX: 1.05 }, { scaleY: 1.05 }],
-  },
-
-  submitText: {
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'black',
-  },
 });
