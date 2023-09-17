@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import AddPayment from './app/components/AddPayment/AddPayment';
 import BalanceUI from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
+import Loading from './app/components/Loading/Loading';
 import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 import Settings from './app/components/Settings/Settings';
 import Balance from './app/logic/Balance';
 import Payment from './app/logic/Payment';
 import { appStyles } from './app/utils/AppStyles';
-import Loading from './app/components/Loading/Loading';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,9 +67,9 @@ export default function App() {
 
   return (
     <SafeAreaView style={appStyles.container}>
-      {isLoading ? 
+      {isLoading ? (
         <Loading />
-      :
+      ) : (
         <>
           <StatusBar style="auto" />
           <Settings />
@@ -79,10 +79,10 @@ export default function App() {
             visibility={addPaymentVisibility}
             setAddPaymentVisibility={setAddPaymentVisibility}
             updateBalance={updateBalance}
-            />
+          />
           <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
         </>
-      }
+      )}
     </SafeAreaView>
   );
 }
