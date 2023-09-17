@@ -12,4 +12,33 @@ export const styles = StyleSheet.create({
     borderWidth: 5,
     borderColor: COLORS.primary,
   },
+
+  buttonContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: '15%'
+  },
+
+  button: {
+    right: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    elevation: 3,
+    backgroundColor: COLORS.tertiary,
+  },
+
+  pressedButton: {
+    opacity: 0.9,
+    transform: [{ scaleX: 1.05 }, { scaleY: 1.05 }],
+  },
+
+  text: {
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'black',
+  },
 });
