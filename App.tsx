@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import AddPayment from './app/components/AddPayment/AddPayment';
 import BalanceUI from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
+import LoadingCircle from './app/components/Loading/Loading';
 import PaymentHistory from './app/components/PaymentHistory/PaymentHistory';
 import Settings from './app/components/Settings/Settings';
 import Balance from './app/logic/Balance';
 import Payment from './app/logic/Payment';
+import { appStyles } from './app/utils/AppStyles';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,35 +65,24 @@ export default function App() {
     return isNaN(update) || update === 0;
   };
 
-  if (isLoading) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>Loading</Text>
-      </SafeAreaView>
-    );
-  }
-
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
-      <Settings />
-      <BalanceUI balance={balance} />
-      <PaymentHistory payments={payments} />
-      <AddPayment
-        visibility={addPaymentVisibility}
-        setAddPaymentVisibility={setAddPaymentVisibility}
-        updateBalance={updateBalance}
-      />
-      <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
+    <SafeAreaView style={appStyles.container}>
+      {isLoading ? (
+        <LoadingCircle />
+      ) : (
+        <>
+          <StatusBar style="auto" />
+          <Settings />
+          <BalanceUI balance={balance} />
+          <PaymentHistory payments={payments} />
+          <AddPayment
+            visibility={addPaymentVisibility}
+            setAddPaymentVisibility={setAddPaymentVisibility}
+            updateBalance={updateBalance}
+          />
+          <Footer setAddPaymentVisibility={setAddPaymentVisibility} />
+        </>
+      )}
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
