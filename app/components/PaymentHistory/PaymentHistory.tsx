@@ -62,6 +62,7 @@ export default function PaymentHistory(props: PaymentHistoryProps) {
           visibility={editVisibility}
           setAddPaymentVisibility={setEditVisibility}
           updateBalance={(update: number) => props.editPayment(update, selectedPayment)}
+          value={props.payments.find(payment => payment.getKey() === selectedPayment)?.value.toString()}
         />
       )}
 

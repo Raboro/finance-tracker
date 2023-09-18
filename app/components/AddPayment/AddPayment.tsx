@@ -9,6 +9,7 @@ interface AddPaymentProps {
   visibility: boolean;
   setAddPaymentVisibility: (visibility: boolean) => void;
   updateBalance: (balance: number) => void;
+  value?: string;
 }
 
 export default function AddPayment(props: AddPaymentProps) {
@@ -38,6 +39,7 @@ export default function AddPayment(props: AddPaymentProps) {
           style={[styles.paymentInput, border.default]}
           placeholder="Payment"
           keyboardType="numeric"
+          value={props.value ?? ''}
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
