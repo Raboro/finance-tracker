@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import Payment from '../../logic/Payment';
 import { border } from '../../utils/Border';
+import AddPayment from '../AddPayment/AddPayment';
 import ExpandIcon from '../ExpandIcon/ExpandIcon';
 import PaymentItem from '../Payment/PaymentItem';
 import PaymentItemOptionsModal from '../PaymentItemOptionsModal/PaymentItemOptionsModal';
 import { styles } from './PaymentStyles';
-import AddPayment from '../AddPayment/AddPayment';
 
 interface PaymentHistoryProps {
   payments: Payment[];
@@ -61,8 +61,12 @@ export default function PaymentHistory(props: PaymentHistoryProps) {
         <AddPayment
           visibility={editVisibility}
           setAddPaymentVisibility={setEditVisibility}
-          updateBalance={(update: number) => props.editPayment(update, selectedPayment)}
-          value={props.payments.find(payment => payment.getKey() === selectedPayment)?.value.toString()}
+          updateBalance={(update: number) =>
+            props.editPayment(update, selectedPayment)
+          }
+          value={props.payments
+            .find((payment) => payment.getKey() === selectedPayment)
+            ?.value.toString()}
         />
       )}
 

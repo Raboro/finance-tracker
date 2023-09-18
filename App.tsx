@@ -82,7 +82,11 @@ export default function App() {
           <StatusBar style="auto" />
           <Settings />
           <BalanceUI balance={balance} />
-          <PaymentHistory payments={payments} removePayment={removePayment} editPayment={editPayment} />
+          <PaymentHistory
+            payments={payments}
+            removePayment={removePayment}
+            editPayment={editPayment}
+          />
           <AddPayment
             visibility={addPaymentVisibility}
             setAddPaymentVisibility={setAddPaymentVisibility}
