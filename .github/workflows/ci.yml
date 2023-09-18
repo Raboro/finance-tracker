@@ -102,6 +102,28 @@ jobs:
             echo "TRIGGER_SONAR=false" >> "$GITHUB_ENV"
           fi
 
+      - name: Setup Bun and Node
+        uses: oven-sh/setup-bun@v1
+        if: env.TRIGGER_SONAR == 'true'
+        with:
+          bun-version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        if: env.TRIGGER_SONAR == 'true'
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        if: env.TRIGGER_SONAR == 'true'
+        run: |
+          bun install
+          npm install
+
+      - name: Generate Test Coverage Report
+        if: env.TRIGGER_SONAR == 'true'
+        run: npm run test:coverage
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         if: env.TRIGGER_SONAR == 'true'
