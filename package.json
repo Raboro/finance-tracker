@@ -11,7 +11,8 @@
     "lint": "sh scripts/lint.sh",
     "format": "prettier --write \"**/*.+(js|ts|tsx)\"",
     "organizeImports": "organize-imports-cli tsconfig[.*].json",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage --collectCoverageFrom='./**'"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
