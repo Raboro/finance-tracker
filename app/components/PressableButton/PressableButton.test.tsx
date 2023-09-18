@@ -14,4 +14,11 @@ describe('PressableButtonRendering', () => {
       .toJSON() as ReactTestRendererJSON | null;
     expect(r?.children?.length).toBe(1);
   });
+
+  test('propsNotNull', () => {
+    const r = renderer
+      .create(<PressableButton text="" onPress={() => {}} />)
+      .toJSON() as ReactTestRendererJSON | null;
+    expect(r?.props).not.toBe(null);
+  });
 });
