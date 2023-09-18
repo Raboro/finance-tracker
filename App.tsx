@@ -64,6 +64,15 @@ export default function App() {
       .catch((error) => console.error('Error removing payments:', error));
   };
 
+  const editPayment = (update: number, id: string) => {
+    if (noUpdateNeeded(update)) return;
+    const updatedBalanceObj = balanceObj || new Balance();
+    updatedBalanceObj
+      .updatePayment(new Payment(update, id))
+      .then(() => updateApp(updatedBalanceObj))
+      .catch((error) => console.error('Error editing payment' + error));
+  };
+
   return (
     <SafeAreaView style={appStyles.container}>
       {isLoading ? (
@@ -73,7 +82,11 @@ export default function App() {
           <StatusBar style="auto" />
           <Settings />
           <BalanceUI balance={balance} />
-          <PaymentHistory payments={payments} removePayment={removePayment} />
+          <PaymentHistory
+            payments={payments}
+            removePayment={removePayment}
+            editPayment={editPayment}
+          />
           <AddPayment
             visibility={addPaymentVisibility}
             setAddPaymentVisibility={setAddPaymentVisibility}

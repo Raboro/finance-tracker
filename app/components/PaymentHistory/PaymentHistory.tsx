@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import Payment from '../../logic/Payment';
 import { border } from '../../utils/Border';
+import AddPayment from '../AddPayment/AddPayment';
 import ExpandIcon from '../ExpandIcon/ExpandIcon';
 import PaymentItem from '../Payment/PaymentItem';
 import PaymentItemOptionsModal from '../PaymentItemOptionsModal/PaymentItemOptionsModal';
@@ -10,16 +11,23 @@ import { styles } from './PaymentStyles';
 interface PaymentHistoryProps {
   payments: Payment[];
   removePayment: (id: string) => void;
+  editPayment: (update: number, id: string) => void;
 }
 
 export default function PaymentHistory(props: PaymentHistoryProps) {
   const [listVisibility, setListVisibility] = useState(false);
   const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState('');
+  const [editVisibility, setEditVisibility] = useState(false);
 
   const openModal = (paymentId: string) => {
     setSelectedPayment(paymentId);
     setOptionsModalVisibility(true);
+  };
+
+  const editPayment = () => {
+    setEditVisibility(true);
+    setOptionsModalVisibility(false);
   };
 
   return (
@@ -44,8 +52,21 @@ export default function PaymentHistory(props: PaymentHistoryProps) {
       {optionsModalVisibility && (
         <PaymentItemOptionsModal
           visibilityChange={setOptionsModalVisibility}
-          editPayment={() => {}}
+          editPayment={editPayment}
           removePayment={() => props.removePayment(selectedPayment)}
+        />
+      )}
+
+      {editVisibility && (
+        <AddPayment
+          visibility={editVisibility}
+          setAddPaymentVisibility={setEditVisibility}
+          updateBalance={(update: number) =>
+            props.editPayment(update, selectedPayment)
+          }
+          value={props.payments
+            .find((payment) => payment.getKey() === selectedPayment)
+            ?.value.toString()}
         />
       )}
 
