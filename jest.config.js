@@ -4,8 +4,9 @@ module.exports = {
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   testPathIgnorePatterns: [
     '\\.snap$',
-    '<rootDir>/node_modules/',
-    '<rootDir>/lib/',
+    './node_modules/',
+    './lib/',
+    './coverage/',
   ],
   cacheDirectory: '.jest/cache',
 };
