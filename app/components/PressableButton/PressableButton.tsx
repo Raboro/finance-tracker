@@ -12,6 +12,7 @@ export default function PressableButton(props: PressableButtonProps) {
   return (
     <>
       <Pressable
+        testID='PressableButton'
         style={({ pressed }) => [
           styles.button,
           border.default,

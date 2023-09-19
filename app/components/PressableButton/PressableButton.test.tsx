@@ -1,8 +1,9 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, jest, test } from '@jest/globals';
 import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
 import PressableButton from './PressableButton';
+import { fireEvent, render } from '@testing-library/react-native'
 
-describe('PressableButtonRendering', () => {
+describe('PressableButton', () => {
   test('renderNotNull', () => {
     const r = renderer.create(<PressableButton text="" onPress={() => {}} />);
     expect(r).not.toBe(null);
@@ -21,4 +22,12 @@ describe('PressableButtonRendering', () => {
       .toJSON() as ReactTestRendererJSON | null;
     expect(r?.props).not.toBe(null);
   });
+
+  test('pressButton', () => {
+    const mockOnPress = jest.fn();
+    const { getByTestId } = render(<PressableButton text='' onPress={mockOnPress}/>)
+    const button = getByTestId('PressableButton');
+    fireEvent(button, 'press');
+    expect(mockOnPress).toHaveBeenCalled();
+  })
 });
