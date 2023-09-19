@@ -34,7 +34,7 @@ export default function App() {
 
   const updateBalance = (update: number) => {
     if (noUpdateNeeded(update)) return;
-    const updatedBalanceObj = balanceObj || new Balance();
+    const updatedBalanceObj = balanceObj ?? new Balance();
     updatedBalanceObj
       .addPayment(update)
       .then(() => updateApp(updatedBalanceObj))
@@ -57,7 +57,7 @@ export default function App() {
   };
 
   const removePayment = (id: string) => {
-    const updatedBalanceObj = balanceObj || new Balance();
+    const updatedBalanceObj = balanceObj ?? new Balance();
     updatedBalanceObj
       .removePayment(id)
       .then(() => updateApp(updatedBalanceObj))
@@ -66,7 +66,7 @@ export default function App() {
 
   const editPayment = (update: number, id: string) => {
     if (noUpdateNeeded(update)) return;
-    const updatedBalanceObj = balanceObj || new Balance();
+    const updatedBalanceObj = balanceObj ?? new Balance();
     updatedBalanceObj
       .updatePayment(new Payment(update, id))
       .then(() => updateApp(updatedBalanceObj))
