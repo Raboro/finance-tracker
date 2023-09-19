@@ -85,7 +85,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch changed ts/tsx/js files
+      - name: Fetch changed ts/tsx/js/ci.yml files
         id: changedFiles
         uses: Ana06/get-changed-files@v2.2.0
         with:
