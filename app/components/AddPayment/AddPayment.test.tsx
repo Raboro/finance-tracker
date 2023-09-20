@@ -1,8 +1,8 @@
 import { describe, expect, jest, test } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react-native';
+import { Platform } from 'react-native';
 import renderer from 'react-test-renderer';
 import AddPayment from './AddPayment';
-import { Platform } from 'react-native';
 
 describe('AddPayment', () => {
   test('renderNotNull', () => {

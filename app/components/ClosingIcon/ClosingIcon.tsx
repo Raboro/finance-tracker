@@ -8,16 +8,12 @@ interface ClosingIconProps {
 
 export default function ClosingIcon(props: ClosingIconProps) {
   return (
-    <TouchableOpacity 
-      testID='ClosingIcon' 
+    <TouchableOpacity
+      testID="ClosingIcon"
       style={styles.container}
       onPress={() => props.visibilityChange(false)}
     >
-      <Ionicons
-        name="close-sharp"
-        size={40}
-        color="black"
-      />
+      <Ionicons name="close-sharp" size={40} color="black" />
     </TouchableOpacity>
   );
 }

@@ -12,7 +12,7 @@ export default function Footer(props: FooterProps) {
       <SafeAreaView style={styles.background} />
       <SafeAreaView style={styles.circle} />
       <TouchableOpacity
-        testID='FooterTouchable'
+        testID="FooterTouchable"
         style={[styles.centerButton]}
         onPress={() => props.setAddPaymentVisibility(true)}
       >

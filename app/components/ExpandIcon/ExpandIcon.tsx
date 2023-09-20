@@ -9,7 +9,10 @@ interface ExpandIconProps {
 export default function ExpandIcon(props: ExpandIconProps) {
   return (
     <>
-      <TouchableOpacity testID="ExpandIcon" onPress={() => props.changeState(!props.expand)}>
+      <TouchableOpacity
+        testID="ExpandIcon"
+        onPress={() => props.changeState(!props.expand)}
+      >
         <MaterialIcons
           name={props.expand ? 'expand-less' : 'expand-more'}
           size={35}
