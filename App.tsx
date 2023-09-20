@@ -44,7 +44,7 @@ export default function App() {
   const noUpdateNeeded = (update: number) => {
     if (isNaN(update)) Alert.alert('Invalid Input - not a number!');
     return isNaN(update) || update === 0;
-  }
+  };
 
   const updateApp = (updatedBalanceObj: Balance) => {
     updatedBalanceObj

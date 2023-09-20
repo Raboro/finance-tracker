@@ -7,6 +7,6 @@ export const styles = StyleSheet.create({
     margin: '3%',
     textAlign: 'center',
     marginHorizontal: '20%',
-    paddingTop: Platform.OS === 'android' ? '2%': '0%',
+    paddingTop: Platform.OS === 'android' ? '2%' : '0%',
   },
 });

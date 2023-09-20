@@ -37,7 +37,9 @@ export default function AddPayment(props: AddPaymentProps) {
         <TextInput
           style={[styles.paymentInput, border.default]}
           placeholder="Payment"
-          keyboardType={Platform.OS === "android" ? "number-pad" : "numbers-and-punctuation"}
+          keyboardType={
+            Platform.OS === 'android' ? 'number-pad' : 'numbers-and-punctuation'
+          }
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
