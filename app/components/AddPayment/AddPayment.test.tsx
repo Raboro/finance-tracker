@@ -2,6 +2,7 @@ import { describe, expect, jest, test } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 import AddPayment from './AddPayment';
+import { Platform } from 'react-native';
 
 describe('AddPayment', () => {
   test('renderNotNull', () => {
@@ -48,5 +49,30 @@ describe('AddPayment', () => {
     fireEvent.changeText(inputElement, 'Text');
     fireEvent.press(submitButton);
     expect(updateBalance).toHaveBeenCalledWith(NaN);
+  });
+
+  test('check keyboardType not android', () => {
+    const rend = render(
+      <AddPayment
+        visibility={true}
+        setAddPaymentVisibility={() => {}}
+        updateBalance={() => {}}
+      />,
+    );
+    const inputElement = rend.getByPlaceholderText('Payment');
+    expect(inputElement.props.keyboardType).toBe('numbers-and-punctuation');
+  });
+
+  test('check keyboardType android', () => {
+    Platform.OS = 'android';
+    const rend = render(
+      <AddPayment
+        visibility={true}
+        setAddPaymentVisibility={() => {}}
+        updateBalance={() => {}}
+      />,
+    );
+    const inputElement = rend.getByPlaceholderText('Payment');
+    expect(inputElement.props.keyboardType).toBe('number-pad');
   });
 });
