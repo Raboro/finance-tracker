@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { Alert, SafeAreaView } from 'react-native';
 import AddPayment from './app/components/AddPayment/AddPayment';
 import BalanceUI from './app/components/Balance/Balance';
 import Footer from './app/components/Footer/Footer';
@@ -41,7 +41,10 @@ export default function App() {
       .catch((error) => console.error('Error adding payments:', error));
   };
 
-  const noUpdateNeeded = (update: number) => isNaN(update) || update === 0;
+  const noUpdateNeeded = (update: number) => {
+    if (isNaN(update)) Alert.alert('Invalid Input - not a number!');
+    return isNaN(update) || update === 0;
+  }
 
   const updateApp = (updatedBalanceObj: Balance) => {
     updatedBalanceObj
