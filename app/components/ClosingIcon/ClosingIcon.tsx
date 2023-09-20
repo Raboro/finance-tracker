@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { styles } from './ClosingIconStyles';
 
 interface ClosingIconProps {
@@ -8,13 +8,16 @@ interface ClosingIconProps {
 
 export default function ClosingIcon(props: ClosingIconProps) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity 
+      testID='ClosingIcon' 
+      style={styles.container}
+      onPress={() => props.visibilityChange(false)}
+    >
       <Ionicons
         name="close-sharp"
         size={40}
         color="black"
-        onPress={() => props.visibilityChange(false)}
       />
-    </View>
+    </TouchableOpacity>
   );
 }
