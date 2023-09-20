@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/ColorStyles';
 
 export const styles = StyleSheet.create({
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   },
 
   containerSmall: {
-    marginBottom: '120%',
+    marginBottom: Platform.OS === 'ios' ? '105%' : '120%',
   },
 
   expand: {
