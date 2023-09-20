@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { COLORS } from '../../utils/ColorStyles';
 
 export const styles = StyleSheet.create({
@@ -7,6 +7,6 @@ export const styles = StyleSheet.create({
     margin: '3%',
     textAlign: 'center',
     marginHorizontal: '20%',
-    paddingTop: '2%',
+    paddingTop: Platform.OS === 'android' ? '2%': '0%',
   },
 });
