@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, TextInput, View } from 'react-native';
+import { Modal, Platform, TextInput, View } from 'react-native';
 import { border } from '../../utils/Border';
 import ClosingIcon from '../ClosingIcon/ClosingIcon';
 import PressableButton from '../PressableButton/PressableButton';
@@ -37,7 +37,7 @@ export default function AddPayment(props: AddPaymentProps) {
         <TextInput
           style={[styles.paymentInput, border.default]}
           placeholder="Payment"
-          keyboardType="numeric"
+          keyboardType={Platform.OS === "android" ? "number-pad" : "numbers-and-punctuation"}
           onChangeText={(text) => updateInput(parseFloat(text))}
         />
 
