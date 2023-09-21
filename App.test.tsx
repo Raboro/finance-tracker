@@ -93,7 +93,9 @@ describe('App', () => {
     fireEvent.changeText(inputElement, 'aaaa');
     await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
     fireEvent(rend.getByText('List of Payments'), 'press');
-    expect(rend.getByTestId('PaymentHistory').props.children[4].props.data.length).toBe(0)
+    expect(
+      rend.getByTestId('PaymentHistory').props.children[4].props.data.length,
+    ).toBe(0);
   });
 
   test('try to add zero Payment', async () => {
@@ -103,6 +105,8 @@ describe('App', () => {
     fireEvent.changeText(inputElement, '0');
     await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
     fireEvent(rend.getByText('List of Payments'), 'press');
-    expect(rend.getByTestId('PaymentHistory').props.children[4].props.data.length).toBe(0)
+    expect(
+      rend.getByTestId('PaymentHistory').props.children[4].props.data.length,
+    ).toBe(0);
   });
 });
