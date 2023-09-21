@@ -9,5 +9,5 @@ module.exports = {
     '/jest.config.js',
     '/coverage/',
   ],
-  setupFiles: ['./jestSetupFile.js']
+  setupFiles: ['./jestSetupFile.js'],
 };

@@ -1,4 +1,4 @@
-import { describe, expect, test, beforeEach } from '@jest/globals';
+import { beforeEach, describe, expect, test } from '@jest/globals';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import App from './App';
 
