@@ -68,7 +68,7 @@ export default function App() {
   };
 
   const editPayment = (update: number, id: string) => {
-    if (noUpdateNeeded(update) && update !== 0 ) return;
+    if (noUpdateNeeded(update) && update !== 0) return;
     if (update === 0) {
       removePayment(id);
       return;
