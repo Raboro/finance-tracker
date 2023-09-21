@@ -39,18 +39,6 @@ export default class Storage {
     }
   }
 
-  async getPayment(key: string): Promise<Payment | null> {
-    try {
-      const item = await AsyncStorage.getItem(key);
-      if (item === null) return null;
-      const parsed = JSON.parse(item);
-      return new Payment(parsed.value, parsed.id);
-    } catch (e) {
-      console.error('ERROR' + e);
-    }
-    return null;
-  }
-
   async updatePayment(payment: Payment): Promise<void> {
     try {
       await AsyncStorage.mergeItem(payment.getKey(), payment.toStorage());
