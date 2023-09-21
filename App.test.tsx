@@ -85,4 +85,24 @@ describe('App', () => {
       rend.getByTestId('PaymentHistory').props.children[4].props.data[0],
     ).toMatchObject({ id: '0', value: 100 });
   });
+
+  test('try to add invalid Payment', async () => {
+    const rend = await waitFor(() => render(<App />));
+    fireEvent(rend.getByTestId('FooterTouchable'), 'press');
+    const inputElement = rend.getByPlaceholderText('Payment');
+    fireEvent.changeText(inputElement, 'aaaa');
+    await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
+    fireEvent(rend.getByText('List of Payments'), 'press');
+    expect(rend.getByTestId('PaymentHistory').props.children[4].props.data.length).toBe(0)
+  });
+
+  test('try to add zero Payment', async () => {
+    const rend = await waitFor(() => render(<App />));
+    fireEvent(rend.getByTestId('FooterTouchable'), 'press');
+    const inputElement = rend.getByPlaceholderText('Payment');
+    fireEvent.changeText(inputElement, '0');
+    await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
+    fireEvent(rend.getByText('List of Payments'), 'press');
+    expect(rend.getByTestId('PaymentHistory').props.children[4].props.data.length).toBe(0)
+  });
 });
