@@ -109,4 +109,39 @@ describe('App', () => {
       rend.getByTestId('PaymentHistory').props.children[4].props.data.length,
     ).toBe(0);
   });
+
+  test('try to edit with invalid Payment', async () => {
+    const rend = await waitFor(() => render(<App />));
+    fireEvent(rend.getByTestId('FooterTouchable'), 'press');
+    const inputElement = rend.getByPlaceholderText('Payment');
+    fireEvent.changeText(inputElement, '10');
+    await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
+    fireEvent(rend.getByText('List of Payments'), 'press');
+
+    fireEvent(rend.getByTestId('PaymentItem-0'), 'press');
+    await waitFor(() => fireEvent(rend.getByText('Edit'), 'press'));
+    fireEvent.changeText(rend.getByPlaceholderText('Payment'), 'aa');
+    await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
+    expect(
+      rend.getByTestId('PaymentHistory').props.children[4].props.data[0].value,
+    ).toBe(10);
+  });
+
+  test('try to edit zero Payment', async () => {
+    const rend = await waitFor(() => render(<App />));
+    fireEvent(rend.getByTestId('FooterTouchable'), 'press');
+    const inputElement = rend.getByPlaceholderText('Payment');
+    fireEvent.changeText(inputElement, '10');
+    await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
+    fireEvent(rend.getByText('List of Payments'), 'press');
+
+    fireEvent(rend.getByTestId('PaymentItem-0'), 'press');
+    await waitFor(() => fireEvent(rend.getByText('Edit'), 'press'));
+    fireEvent.changeText(rend.getByPlaceholderText('Payment'), '0');
+    await waitFor(() => fireEvent(rend.getByText('Submit'), 'press'));
+    fireEvent(rend.getByText('List of Payments'), 'press');
+    expect(
+      rend.getByTestId('PaymentHistory').props.children[4].props.data.length,
+    ).toBe(0);
+  });
 });
