@@ -32,7 +32,7 @@ export default function PaymentHistory(props: PaymentHistoryProps) {
 
   return (
     <View
-      testID='PaymentHistory'
+      testID="PaymentHistory"
       style={[
         styles.container,
         border.default,
