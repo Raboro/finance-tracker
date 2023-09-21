@@ -11,6 +11,7 @@ interface PaymentItemProps {
 export default function PaymentItem(props: PaymentItemProps) {
   return (
     <Text
+      testID={'PaymentItem-'.concat(props.payment.getKey())}
       style={[styles.container, border.default]}
       onPress={() => props.openModal(props.payment.getKey())}
     >
