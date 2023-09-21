@@ -68,7 +68,11 @@ export default function App() {
   };
 
   const editPayment = (update: number, id: string) => {
-    if (noUpdateNeeded(update)) return;
+    if (noUpdateNeeded(update) && update !== 0 ) return;
+    if (update === 0) {
+      removePayment(id);
+      return;
+    }
     const updatedBalanceObj = balanceObj ?? new Balance();
     updatedBalanceObj
       .updatePayment(new Payment(update, id))
