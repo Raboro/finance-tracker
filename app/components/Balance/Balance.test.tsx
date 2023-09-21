@@ -25,13 +25,12 @@ describe('Balance', () => {
 });
 
 function getStyling(positive: boolean, zero?: boolean) {
-  const balance = zero ? 0 : getRandomNumber(positive);
+  const balance = zero ? 0 : getNumber(positive);
   const rend = render(<BalanceUI balance={balance} />);
   const text = rend.getByText(balance.toString());
   return text.props.style;
 }
 
-function getRandomNumber(positive: boolean): number {
-  const number = Math.random() * 99999 + 1;
-  return positive ? number : -number;
+function getNumber(positive: boolean): number {
+  return positive ? 1 : -1;
 }
