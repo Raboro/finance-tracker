@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 
   circle: {
     position: 'absolute',
-    backgroundColor: 'white',
+    backgroundColor: COLORS.quaternary,
     height: 80,
     width: '20%',
     borderRadius: 50,
