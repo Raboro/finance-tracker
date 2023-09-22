@@ -1,5 +1,7 @@
 # Finance Tracker
 
+![FT](app/assets/readmeIcon.png)
+
 [![CI](https://github.com/Raboro/finance-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Raboro/finance-tracker/actions/workflows/ci.yml)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Raboro_finance-tracker&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Raboro_finance-tracker)
