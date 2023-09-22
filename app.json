@@ -1,8 +1,9 @@
 {
   "expo": {
     "name": "FinanceTracker",
-    "slug": "FinanceTracker",
+    "slug": "financetracker",
     "version": "1.0.0",
+    "description": "App to track you finances.",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,16 +16,30 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.raboro.financetracker"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/splash.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.raboro.financetracker"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ec77047f-6f32-4db1-bf47-9e81545d8a11"
+      }
+    },
+    "owner": "raboro",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/ec77047f-6f32-4db1-bf47-9e81545d8a11"
     }
   }
 }
