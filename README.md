@@ -25,3 +25,6 @@ Go the the [website](https://expo.dev/@raboro/financetracker) and scan the QR Co
 2. Install all dependencies: ``npm install``
 3. Run ``npm start`` 
 4. Scan QR Code 
+
+## Update
+Run ``eas update`` to upload the newest changes to expo.
