@@ -14,3 +14,14 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Raboro_finance-tracker&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Raboro_finance-tracker)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Raboro_finance-tracker&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Raboro_finance-tracker)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Raboro_finance-tracker&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Raboro_finance-tracker)
+
+
+## Using
+
+Go the the [website](https://expo.dev/@raboro/financetracker) and scan the QR Code.
+
+### Locally
+1. Clone the repo
+2. Install all dependencies: ``npm install``
+3. Run ``npm start`` 
+4. Scan QR Code 
