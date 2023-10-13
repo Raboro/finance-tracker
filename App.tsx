@@ -16,7 +16,7 @@ export default function App() {
   const [balanceObj, setBalanceObj] = useState<Balance | null>(null);
   const [balance, setBalance] = useState(0);
   const [addPaymentVisibility, setAddPaymentVisibility] = useState(false);
-  const [payments, updatePayments] = useState<Payment[]>([]);
+  const [payments, setPayments] = useState<Payment[]>([]);
 
   useEffect(() => {
     reloadApp();
@@ -28,7 +28,7 @@ export default function App() {
     await newBalanceObj.fetchPayments();
     setBalanceObj(newBalanceObj);
     setBalance(await newBalanceObj.recalculate());
-    updatePayments(await newBalanceObj.getPayments());
+    setPayments(await newBalanceObj.getPayments());
     setIsLoading(false);
   };
 
@@ -50,7 +50,7 @@ export default function App() {
     updatedBalanceObj
       .getPayments()
       .then((updatedPayments: Payment[]) => {
-        updatePayments(updatedPayments);
+        setPayments(updatedPayments);
         updatedBalanceObj
           .recalculate()
           .then(() => reloadApp())
