@@ -8,7 +8,6 @@ interface ExpandIconProps {
 
 export default function ExpandIcon(props: Readonly<ExpandIconProps>) {
   return (
-    <>
       <TouchableOpacity
         testID="ExpandIcon"
         onPress={() => props.changeState(!props.expand)}
@@ -19,6 +18,5 @@ export default function ExpandIcon(props: Readonly<ExpandIconProps>) {
           color="black"
         />
       </TouchableOpacity>
-    </>
   );
 }
