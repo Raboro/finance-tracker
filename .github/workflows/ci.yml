@@ -52,7 +52,7 @@ jobs:
           branch: ${{ github.ref }}
 
       - name: Run tests with Jest
-        run: npm test
+        run: bun test
 
   sonar:
     name: SonarCloud analysis
