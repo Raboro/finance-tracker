@@ -28,16 +28,16 @@ jobs:
         run: bun install
 
       - name: Organize imports
-        run: npm run organizeImports
+        run: bun run organizeImports
 
       - name: Fix eslint issues
-        run: npm run lint:fix
+        run: bun run lint:fix
 
       - name: Check all eslint issues fixed
-        run: npm run lint
+        run: bun run lint
 
       - name: Format
-        run: npm run format
+        run: bun run format
 
       - name: Commit changes
         run: |
