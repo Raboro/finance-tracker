@@ -8,7 +8,7 @@ interface PressableButtonProps {
   style?: StyleProp<ViewStyle>;
 }
 
-export default function PressableButton(props: PressableButtonProps) {
+export default function PressableButton(props: Readonly<PressableButtonProps>) {
   return (
     <Pressable
       testID="PressableButton"

@@ -8,7 +8,7 @@ interface PaymentItemProps {
   openModal: (paymentId: string) => void;
 }
 
-export default function PaymentItem(props: PaymentItemProps) {
+export default function PaymentItem(props: Readonly<PaymentItemProps>) {
   return (
     <Text
       testID={'PaymentItem-'.concat(props.payment.getKey())}

@@ -14,7 +14,7 @@ interface PaymentHistoryProps {
   editPayment: (update: number, id: string) => void;
 }
 
-export default function PaymentHistory(props: PaymentHistoryProps) {
+export default function PaymentHistory(props: Readonly<PaymentHistoryProps>) {
   const [listVisibility, setListVisibility] = useState(false);
   const [optionsModalVisibility, setOptionsModalVisibility] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState('');

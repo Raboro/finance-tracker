@@ -6,7 +6,7 @@ interface ExpandIconProps {
   changeState: (value: boolean) => void;
 }
 
-export default function ExpandIcon(props: ExpandIconProps) {
+export default function ExpandIcon(props: Readonly<ExpandIconProps>) {
   return (
     <>
       <TouchableOpacity

@@ -6,7 +6,7 @@ interface FooterProps {
   setAddPaymentVisibility: (visibility: boolean) => void;
 }
 
-export default function Footer(props: FooterProps) {
+export default function Footer(props: Readonly<FooterProps>) {
   return (
     <>
       <SafeAreaView style={styles.background} />

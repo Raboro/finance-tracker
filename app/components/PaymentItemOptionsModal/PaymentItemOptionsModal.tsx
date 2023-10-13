@@ -10,7 +10,7 @@ interface PaymentItemOptionsModalProps {
 }
 
 export default function PaymentItemOptionsModal(
-  props: PaymentItemOptionsModalProps,
+  props: Readonly<PaymentItemOptionsModalProps>,
 ) {
   return (
     <Modal animationType="slide" presentationStyle="pageSheet">

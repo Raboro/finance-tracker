@@ -6,7 +6,7 @@ interface ClosingIconProps {
   visibilityChange: (change: boolean) => void;
 }
 
-export default function ClosingIcon(props: ClosingIconProps) {
+export default function ClosingIcon(props: Readonly<ClosingIconProps>) {
   return (
     <TouchableOpacity
       testID="ClosingIcon"

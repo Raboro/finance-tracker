@@ -11,7 +11,7 @@ interface AddPaymentProps {
   updateBalance: (balance: number) => void;
 }
 
-export default function AddPayment(props: AddPaymentProps) {
+export default function AddPayment(props: Readonly<AddPaymentProps>) {
   const [input, updateInput] = useState(0);
 
   const resetModal = () => {
