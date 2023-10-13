@@ -10,19 +10,17 @@ interface PressableButtonProps {
 
 export default function PressableButton(props: PressableButtonProps) {
   return (
-    <>
-      <Pressable
-        testID="PressableButton"
-        style={({ pressed }) => [
-          styles.button,
-          border.default,
-          pressed && styles.pressedButton,
-          props.style ?? {},
-        ]}
-        onPress={props.onPress}
-      >
-        <Text style={styles.text}>{props.text}</Text>
-      </Pressable>
-    </>
+    <Pressable
+      testID="PressableButton"
+      style={({ pressed }) => [
+        styles.button,
+        border.default,
+        pressed && styles.pressedButton,
+        props.style ?? {},
+      ]}
+      onPress={props.onPress}
+    >
+      <Text style={styles.text}>{props.text}</Text>
+    </Pressable>
   );
 }
